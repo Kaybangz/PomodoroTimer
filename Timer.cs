@@ -35,8 +35,10 @@ namespace Pomodoro_timer
 
 
             stopWatch.Stop();
-            var workTimeEnd = DateTime.Now.ToString("HH:mm"); 
+            var workTimeEnd = DateTime.Now.ToString("HH:mm");
 
+
+            Console.Beep();
 
             TimeSpan ts = stopWatch.Elapsed;
 
@@ -63,6 +65,9 @@ namespace Pomodoro_timer
 
             stopWatch.Stop();
             var restTimeEnd = DateTime.Now.ToString("HH:mm");
+
+
+            Console.Beep();
 
 
             TimeSpan ts = stopWatch.Elapsed;
