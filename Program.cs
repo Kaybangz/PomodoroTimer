@@ -12,28 +12,33 @@ namespace Pomodoro_timer
             return TimeSpan.FromMinutes(minutes).TotalMilliseconds;
         }
 
+
         static void Main(string[] args)
         {
+            bool keepProgramRunning = true;
 
-            while (true)
+            while (keepProgramRunning)
             {
                 //Prompt for the user to enter work and rest time
-                Console.WriteLine("Enter work time in minutes: ");
-                int workTime = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Work time saved, Great work buddy!");
-                
-
-                Console.WriteLine("\nEnter rest time in minutes: ");
-                int restTime = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Rest time saved...");
+                try
+                {
+                    Console.WriteLine("Enter work time in minutes: ");
+                    int workTime = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Work time saved, Great work buddy!");
 
 
-                //Take user's input and convert to milliseconds using the ConvertToMilliseconds method
-                int convertWorkTimeToMs = (int)ConvertMinutesToMilliseconds(workTime);
-                int convertRestTimeToMs = (int)ConvertMinutesToMilliseconds(restTime);
+
+                    Console.WriteLine("\nEnter rest time in minutes: ");
+                    int restTime = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Rest time saved...");
 
 
-                //Create an instance of the PomoTimer class
+
+                    int convertWorkTimeToMs = (int)ConvertMinutesToMilliseconds(workTime);
+                    int convertRestTimeToMs = (int)ConvertMinutesToMilliseconds(restTime);
+
+
+                    //Create an instance of the PomoTimer class
                 PomoTimer timer = new PomoTimer(convertWorkTimeToMs, convertRestTimeToMs);
 
 
@@ -83,7 +88,11 @@ namespace Pomodoro_timer
                     Console.WriteLine("\nPlease enter a valid input next time, y for yes and n for no");
                     break;
                 }
-
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Enter a valid number for your timer");
+                }
             }
         }
     }

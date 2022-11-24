@@ -12,8 +12,6 @@ namespace Pomodoro_timer
 
         private int workTime;
         private int restTime;
-
-
      
 
         public PomoTimer(int workTime, int restTime)
@@ -43,8 +41,7 @@ namespace Pomodoro_timer
             TimeSpan ts = stopWatch.Elapsed;
 
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
+                ts.Hours, ts.Minutes, ts.Seconds);
 
 
             Console.WriteLine($"\nWork time lasted for {elapsedTime} \n{workTimeStart} - {workTimeEnd}");
